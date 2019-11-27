@@ -68,7 +68,9 @@ export UPDATE_ZSH_DAYS=7
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-completions)
+
+autoload -U compinit && compinit
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,6 +105,7 @@ export LANG=en_US.UTF-8
 alias ls='ls --color=auto'
 alias pacman='pacman --color=auto'
 alias yay='yay --color=auto'
+alias cargo='cargo --color=auto'
 
 export VISUAL="nvim"
 export EDITOR="${VISUAL}"
