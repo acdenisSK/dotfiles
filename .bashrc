@@ -5,13 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias ls='ls --color=auto'
-alias pacman='pacman --color=auto'
-
-alias config='/usr/bin/git --git-dir=/home/alex/dotfiles --work-tree=/home/alex'
-
-export VISUAL="nvim"
-export EDITOR="${VISUAL}"
+source .common_settings.sh
 
 SKYBLUE="\[$(tput setaf 74)\]"
 DEEPSKY="\[$(tput setaf 39)\]"
