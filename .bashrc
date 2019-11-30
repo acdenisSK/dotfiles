@@ -5,7 +5,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source .common_settings.sh
+source ~/.common_settings.sh
 
 SKYBLUE="\[$(tput setaf 74)\]"
 DEEPSKY="\[$(tput setaf 39)\]"
