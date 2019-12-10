@@ -10,4 +10,4 @@ alias cargo='cargo --color=auto'
 export VISUAL="nvim"
 export EDITOR="${VISUAL}"
 
-alias config='/usr/bin/git --git-dir=/home/alex/dotfiles --work-tree=/home/alex'
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
