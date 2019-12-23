@@ -1,7 +1,4 @@
-#
-# ~/.bash_profile
-#
+#!/bin/bash
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[ -f $HOME/.bashrc ] && source $HOME/.bashrc
 
-export PATH="$HOME/.cargo/bin:$PATH"
