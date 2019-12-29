@@ -4,9 +4,9 @@
 
 export LANG=en_US.UTF-8
 
-if [ -x /usr/bin/nvim ]; then
+if type nvim &>/dev/null; then
     export VISUAL="nvim"
-elif [ -x /usr/bin/vim ]; then
+elif type vim &>/dev/null; then
     export VISUAL="vim"
 else 
     export VISUAL="nano"
@@ -19,11 +19,11 @@ export EDITOR="${VISUAL}"
 alias ls="ls --color=auto"
   
 # Only apply these if the programs already exist
-[ -x /usr/bin/pacman ] && alias pacman="pacman --color=auto"
-[ -x /usr/bin/yay ]    && alias yay="yay --color=auto"
-[ -x /usr/bin/cargo ]  && alias cargo="cargo --color=auto"
+type pacman &>/dev/null && alias pacman="pacman --color=auto"
+type yay &>/dev/null && alias yay="yay --color=auto"
+type cargo &>/dev/null && alias cargo="cargo --color=auto"
  
-if [ -x /usr/bin/git ] && [ -d $HOME/dotfiles ]; then
+if type git &>/dev/null && [ -d $HOME/dotfiles ]; then
     alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 fi
 
