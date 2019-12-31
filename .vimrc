@@ -14,20 +14,13 @@ set expandtab
 set laststatus=2
 set signcolumn=yes
 
-call plug#begin()
+call plug#begin("$HOME/.vim/plugged")
 
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'junegunn/fzf'
 Plug 'jansenm/vim-cmake'
 
 Plug 'scrooloose/nerdtree'
 
 Plug 'sheerun/vim-polyglot'
-Plug 'matthewbdaly/vim-filetype-settings'
 
 Plug 'itchyny/lightline.vim' 
 Plug 'flrnd/plastic.vim'
@@ -37,12 +30,6 @@ Plug 'majutsushi/tagbar'
 call plug#end()
 
 set hidden
-
-let g:LanguageClient_serverCommands = { 'rust': ['ra_lsp_server'], 'cpp': ['clangd'] }
-
-nnoremap <silent> <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-nnoremap <silent> <F8> :TagbarToggle<CR>
 
 tnoremap <Esc> <C-\><C-n>
 
@@ -63,13 +50,14 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 inoremap <s-tab> <c-n>
 
+nnoremap <F8> :TagbarToggle<CR>
 noremap <C-n> :NERDTreeToggle<CR>
+
+autocmd BufWritePre * %s/\s\+$//e
 
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
-
-let g:deoplete#enable_at_startup = 1
 
 set background=dark
 syntax on
