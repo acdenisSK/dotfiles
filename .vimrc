@@ -17,16 +17,30 @@ set background=dark
 " Alter the defaults
 set splitbelow
 set splitright
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
+
 set laststatus=2
-set signcolumn=yes
+
 set hidden
+
+set nobackup
+set nowritebackup
+
+set cmdheight=2
+set updatetime=300
+
+set shortmess+=c
+
+set signcolumn=yes
 
 " Plugins
 call plug#begin("$HOME/.vim/plugged")
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'jansenm/vim-cmake'
 
@@ -49,18 +63,40 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-n>"
-    endif
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Utilise built-in autocompletion
-inoremap <expr> <tab> InsertTabWrapper()
-inoremap <s-tab> <c-n>
+inoremap <silent><expr> <c-space> coc#refresh()
+
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+nmap <F2> <Plug>(coc-rename)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" function! InsertTabWrapper()
+"    let col = col('.') - 1
+"    if !col || getline('.')[col - 1] !~ '\k'
+"        return "\<tab>"
+"    else
+"        return "\<c-n>"
+"    endif
+" endfunction
+
+"" Utilise built-in autocompletion
+"inoremap <expr> <tab> InsertTabWrapper()
+"inoremap <s-tab> <c-n>
 
 " Searching for files easier
 " credit: https://youtu.be/XA2WjJbmmoM?t=425
