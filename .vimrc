@@ -27,6 +27,8 @@ set laststatus=2
 
 set hidden
 
+set nohlsearch
+
 set nobackup
 set nowritebackup
 
