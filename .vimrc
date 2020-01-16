@@ -18,6 +18,9 @@ set background=dark
 set splitbelow
 set splitright
 
+" I'll gladly prefer to see the whole line in one piece, thanks.
+set nowrap
+
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
