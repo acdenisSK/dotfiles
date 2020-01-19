@@ -54,7 +54,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'itchyny/lightline.vim'
-Plug 'flrnd/plastic.vim'
+Plug 'joshdick/onedark.vim'
 
 Plug 'majutsushi/tagbar'
 
@@ -124,6 +124,6 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
 " Theme
-colorscheme plastic
+colorscheme onedark
 
-let g:lightline = { 'colorscheme': 'plastic' }
+let g:lightline = { 'colorscheme': 'onedark' }
