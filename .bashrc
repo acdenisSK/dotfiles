@@ -4,11 +4,9 @@
 
 export LANG=en_US.UTF-8
 
-if type nvim &>/dev/null; then
-    export VISUAL="nvim"
-elif type vim &>/dev/null; then
+if type vim &>/dev/null; then
     export VISUAL="vim"
-else 
+else
     export VISUAL="nano"
 fi
 
@@ -17,12 +15,12 @@ export EDITOR="${VISUAL}"
 # Aliases
 
 alias ls="ls --color=auto"
-  
+
 # Only apply these if the programs already exist
 type pacman &>/dev/null && alias pacman="pacman --color=auto"
 type yay &>/dev/null && alias yay="yay --color=auto"
 type cargo &>/dev/null && alias cargo="cargo --color=auto"
- 
+
 if type git &>/dev/null && [ -d $HOME/dotfiles ]; then
     alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 fi
