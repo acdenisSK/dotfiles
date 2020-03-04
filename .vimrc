@@ -58,6 +58,8 @@ Plug 'joshdick/onedark.vim'
 
 Plug 'majutsushi/tagbar'
 
+Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
 
 tnoremap <Esc> <C-\><C-n>
