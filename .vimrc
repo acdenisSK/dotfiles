@@ -10,6 +10,9 @@ set nocompatible
 
 set number
 
+" Don't show the current mode. The theme already does it for us.
+set noshowmode
+
 " Colouring
 set termguicolors
 set background=dark
