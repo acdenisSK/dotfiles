@@ -3,7 +3,7 @@
 # Only run the program if it isn't already.
 function run {
     if ! pgrep $1 ; then
-        $@
+        $@ &
     fi
 }
 
