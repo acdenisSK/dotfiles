@@ -8,7 +8,6 @@ function run {
 }
 
 run discord &
-run steam &
 run gammy &
 run flameshot &
 run nm-applet &

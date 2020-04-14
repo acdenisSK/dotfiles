@@ -36,4 +36,3 @@ DEEPSKY="\[$(tput setaf 39)\]"
 RESET="\[$(tput sgr0)\]"
 
 PS1="${DEEPSKY}[${RESET}${SKYBLUE}\u@\h${RESET} \W${DEEPSKY}]${RESET}\$ "
-
