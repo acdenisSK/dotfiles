@@ -27,6 +27,7 @@
 from libqtile.config import Key, Screen, Group, Drag, Click, Match
 from libqtile.command import lazy
 from libqtile import hook, layout, bar, widget
+from libqtile.core.manager import Qtile
 
 from typing import List  # noqa: F401
 
@@ -37,9 +38,20 @@ import subprocess
 def autostart():
     subprocess.call([os.path.expanduser("~/.config/qtile/autostart.sh")])
 
+keyboards = ["us", "sk"]
+keyboard_index = 0
+
+def next_keyboard(qtile: Qtile):
+    global keyboard_index
+    keyboard_index = (keyboard_index + 1) % len(keyboards)
+    qtile.cmd_spawn(["setxkbmap", keyboards[keyboard_index]])
+
 mod = "mod4"
 
 keys = [
+    # Switch between keyboard layouts
+    Key([mod], "space", lazy.function(next_keyboard)),
+
     # Switch between windows in current stack pane
     Key([mod], "k", lazy.layout.down()),
     Key([mod], "j", lazy.layout.up()),
@@ -47,9 +59,6 @@ keys = [
     # Move windows up or down in current stack
     Key([mod, "control"], "k", lazy.layout.shuffle_down()),
     Key([mod, "control"], "j", lazy.layout.shuffle_up()),
-
-    # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next()),
 
     # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate()),
@@ -107,7 +116,7 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.TextBox("default config", name="default"),
+                widget.KeyboardLayout(configured_keyboards=keyboards),
                 widget.Systray(),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
             ],
