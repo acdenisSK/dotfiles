@@ -113,7 +113,7 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.GroupBox(),
+                widget.GroupBox(use_mouse_wheel=False, disable_drag=True),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.KeyboardLayout(configured_keyboards=keyboards),
