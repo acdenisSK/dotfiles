@@ -7,6 +7,7 @@ function run {
     fi
 }
 
+run feh --bg-scale ~/.config/qtile/wallpaper.jpg &
 run discord &
 run gammy &
 run flameshot &

@@ -33,6 +33,7 @@ from typing import List  # noqa: F401
 
 import os
 import subprocess
+import socket
 
 @hook.subscribe.startup_once
 def autostart():
@@ -102,23 +103,97 @@ layouts = [
     layout.Stack(num_stacks=2)
 ]
 
+colours = [
+    "#292e3b", # background colour
+    "#636d83", # active text colour
+    "#3a3f47", # passive text colour
+    "#98c379", # highlight and text box colour
+    "#61afef", # alternate highlight and text box colour
+]
+
+prompt = "%s@%s: " % (os.environ["USER"], socket.gethostname())
+
 widget_defaults = dict(
-    font='Noto Sans',
+    font="Noto Sans",
     fontsize=12,
     padding=3,
+    background=colours[0],
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top=bar.Bar(
+       top=bar.Bar(
             [
-                widget.GroupBox(use_mouse_wheel=False, disable_drag=True),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.KeyboardLayout(configured_keyboards=keyboards),
-                widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.GroupBox(
+                    font="Noto Sans Bold",
+                    active=colours[1],
+                    inactive=colours[2],
+                    this_current_screen_border=colours[3],
+                    borderwidth=5,
+                    highlight_method="block",
+                    rounded=False,
+                    use_mouse_wheel=False,
+                    disable_drag=True,
+                ),
+                widget.Prompt(
+                    prompt=prompt,
+                    fontsize=14,
+                ),
+                widget.WindowName(fontsize=14),
+                widget.TextBox(
+                    font="Ubuntu Mono",
+                    text="",
+                    padding=0,
+                    fontsize=46,
+                    foreground=colours[3],
+                ),
+                widget.Systray(
+                    background=colours[3],
+                ),
+                widget.TextBox(
+                    font="Ubuntu Mono",
+                    text="",
+                    padding=0,
+                    fontsize=46,
+                    foreground=colours[4],
+                    background=colours[3],
+                ),
+                widget.TextBox(
+                    font="Ubuntu Mono",
+                    text="⌨️",
+                    padding=0,
+                    fontsize=17,
+                    background=colours[4],
+                ),
+                widget.KeyboardLayout(
+                    font="Ubuntu Mono",
+                    fontsize=14,
+                    configured_keyboards=keyboards,
+                    background=colours[4],
+                ),
+                widget.TextBox(
+                    font="Ubuntu Mono",
+                    text="",
+                    padding=0,
+                    fontsize=46,
+                    foreground=colours[3],
+                    background=colours[4],
+                ),
+                widget.TextBox(
+                    font="Ubuntu Mono",
+                    text="🕗",
+                    padding=0,
+                    fontsize=17,
+                    background=colours[3],
+                ),
+                widget.Clock(
+                    font="Ubuntu Mono",
+                    fontsize=14,
+                    format="%A %H:%M:%S %Y-%m-%d",
+                    foreground=colours[0],
+                    background=colours[3],
+                ),
             ],
             24,
         ),
