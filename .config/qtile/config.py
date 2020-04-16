@@ -54,21 +54,19 @@ keys = [
     Key([mod], "space", lazy.function(next_keyboard)),
 
     # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down()),
-    Key([mod], "j", lazy.layout.up()),
+    Key([mod], "h", lazy.layout.left()),
+    Key([mod], "k", lazy.layout.up()),
+    Key([mod], "j", lazy.layout.down()),
+    Key([mod], "l", lazy.layout.right()),
 
-    # Move windows up or down in current stack
-    Key([mod, "control"], "k", lazy.layout.shuffle_down()),
-    Key([mod, "control"], "j", lazy.layout.shuffle_up()),
+    # Move windows in all directions
+    Key([mod, "control"], "h", lazy.layout.shuffle_left()),
+    Key([mod, "control"], "k", lazy.layout.shuffle_up()),
+    Key([mod, "control"], "j", lazy.layout.shuffle_down()),
+    Key([mod, "control"], "l", lazy.layout.shuffle_right()),
 
-    # Swap panes of split stack
-    Key([mod, "shift"], "space", lazy.layout.rotate()),
+    Key([mod, "shift"], "space", lazy.layout.flip()),
 
-    # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
-    # Unsplit = 1 window displayed, like Max layout, but still with
-    # multiple stack panes
-    Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
     Key([mod], "Return", lazy.spawn("xfce4-terminal")),
 
     # Toggle between different layouts as defined below
@@ -80,13 +78,53 @@ keys = [
     Key([mod], "r", lazy.spawncmd()),
 ]
 
+colours = [
+    "#292e3b", # background colour
+    "#636d83", # active text colour
+    "#3a3f47", # passive text colour
+    "#98c379", # highlight and text box colour
+    "#61afef", # alternate highlight and text box colour
+    "#8002f5", # border highlight colour
+]
+
+layouts = [
+    layout.Max(),
+    layout.MonadTall(
+        name="monadtall",
+        border_normal=colours[0],
+        border_focus=colours[5],
+        margin=3,
+    ),
+]
+
 groups = [
-    Group("web", matches=[Match(wm_class=["firefox"])]),
-    Group("chat", matches=[Match(wm_class=["discord"])]),
-    Group("games", matches=[Match(wm_class=["Steam"])]),
-    Group("term"),
-    Group("misc"),
-    Group("misc2")
+    Group(
+        "web",
+        layout="max",
+        matches=[Match(wm_class=["firefox"])],
+    ),
+    Group(
+        "chat",
+        layout="max",
+        matches=[Match(wm_class=["discord"])],
+    ),
+    Group(
+        "games",
+        layout="max",
+        matches=[Match(wm_class=["Steam"])],
+    ),
+    Group(
+        "term",
+        layout="monadtall",
+    ),
+    Group(
+        "misc",
+        layout="max",
+    ),
+    Group(
+        "misc2",
+        layout="max",
+    )
 ]
 
 for i, group in enumerate(groups, 1):
@@ -97,19 +135,6 @@ for i, group in enumerate(groups, 1):
         # mod1 + shift + position of group = switch to & move focused window to group
         Key([mod, "shift"], str(i), lazy.window.togroup(group.name)),
     ])
-
-layouts = [
-    layout.Max(),
-    layout.Stack(num_stacks=2)
-]
-
-colours = [
-    "#292e3b", # background colour
-    "#636d83", # active text colour
-    "#3a3f47", # passive text colour
-    "#98c379", # highlight and text box colour
-    "#61afef", # alternate highlight and text box colour
-]
 
 prompt = "%s@%s: " % (os.environ["USER"], socket.gethostname())
 
