@@ -123,7 +123,8 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-       top=bar.Bar(
+        wallpaper=os.path.expanduser("~/.config/qtile/wallpaper.jpg"),
+        top=bar.Bar(
             [
                 widget.GroupBox(
                     font="Noto Sans Bold",
