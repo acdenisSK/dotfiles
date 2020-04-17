@@ -196,6 +196,7 @@ screens = [
                     font="Ubuntu Mono",
                     fontsize=14,
                     configured_keyboards=keyboards,
+                    foreground=colours[0],
                     background=colours[4],
                 ),
                 widget.TextBox(
@@ -232,7 +233,7 @@ mouse = [
          start=lazy.window.get_position()),
     Drag([mod], "Button3", lazy.window.set_size_floating(),
          start=lazy.window.get_size()),
-    Click([mod], "Button2", lazy.window.bring_to_front())
+    Click([mod], "Button2", lazy.window.toggle_floating())
 ]
 
 dgroups_key_binder = None
