@@ -67,7 +67,7 @@ keys = [
 
     Key([mod, "shift"], "space", lazy.layout.flip()),
 
-    Key([mod], "Return", lazy.spawn("xfce4-terminal")),
+    Key([mod], "Return", lazy.spawn("alacritty")),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
