@@ -46,6 +46,8 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'sheerun/vim-polyglot'
 
+Plug 'ap/vim-css-color'
+
 Plug 'itchyny/lightline.vim'
 Plug 'joshdick/onedark.vim'
 
