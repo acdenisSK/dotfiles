@@ -1,0 +1,63 @@
+! Config file for xterm based on DistroTube .Xresources config.
+!! https://gitlab.com/dwt1/dotfiles/-/blob/master/.Xresources
+
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcdfilter
+
+XTerm*renderFont: true
+XTerm*faceName: xft:Ubuntu Mono:size=12
+XTerm*utf8: 2
+XTerm*locale: true
+
+XTerm.vt100.translations: #override \n\
+    Ctrl <Key> j: smaller-vt-font() \n\
+    Ctrl <Key> k: larger-vt-font()
+
+! Every shell is a login shell
+xterm*loginShell: true
+
+XTerm*savelines: 7000
+
+! For selecting a URL via double-clicking
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+
+XTerm*foreground: #a1a4aa
+XTerm*background: #21242a
+XTerm*cursorColor: #a1a4aa
+
+! black
+*.color0:       #000000
+*.color8:       #555555
+
+! red
+*.color1:       #aa0000
+*.color9:       #ff5555
+
+! green
+*.color2:       #00aa00
+*.color10:      #55ff55
+
+! yellow
+*.color3:       #aa5500
+*.color11:      #ffff55
+
+! blue
+*.color4:       #0000aa
+*.color12:      #5555ff
+
+! magenta
+*.color5:       #aa00aa
+*.color13:      #ff55ff
+
+! cyan
+*.color6:       #00aaaa
+*.color14:      #55ffff
+
+! white
+*.color7:       #aaaaaa
+*.color15:      #ffffff
