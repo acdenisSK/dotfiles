@@ -101,7 +101,11 @@ groups = [
     Group(
         "web",
         layout="max",
-        matches=[Match(wm_class=["firefox"])],
+        matches=[
+            Match(wm_class=["google-chrome", "Google-chrome"]),
+            Match(wm_class=["chromium", "Chromium"]),
+            Match(wm_class=["firefox"]),
+        ],
     ),
     Group(
         "chat",
