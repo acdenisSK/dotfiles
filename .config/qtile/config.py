@@ -141,7 +141,7 @@ for i, group in enumerate(groups, 1):
 prompt = "%s@%s: " % (os.environ["USER"], socket.gethostname())
 
 widget_defaults = dict(
-    font="Noto Sans",
+    font="Ubuntu",
     fontsize=12,
     padding=3,
     background=colours[0],
@@ -154,7 +154,7 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(
-                    font="Noto Sans Bold",
+                    font="Ubuntu Bold",
                     active=colours[1],
                     inactive=colours[2],
                     this_current_screen_border=colours[3],
