@@ -24,9 +24,9 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from libqtile.config import Key, Screen, Group, Drag, Click, Match
-from libqtile.command import lazy
 from libqtile import hook, layout, bar, widget
+from libqtile.config import Key, Screen, Group, Drag, Click, Match
+from libqtile.lazy import lazy
 from libqtile.core.manager import Qtile
 
 from typing import List  # noqa: F401
@@ -35,23 +35,21 @@ import os
 import subprocess
 import socket
 
+keyboards = ["us", "sk"]
+
 @hook.subscribe.startup_once
 def autostart():
     subprocess.call([os.path.expanduser("~/.config/qtile/autostart.sh")])
 
-keyboards = ["us", "sk"]
-keyboard_index = 0
-
+@lazy.function
 def next_keyboard(qtile: Qtile):
-    global keyboard_index
-    keyboard_index = (keyboard_index + 1) % len(keyboards)
-    qtile.cmd_spawn(["setxkbmap", keyboards[keyboard_index]])
+    qtile.widgets_map["keyboardlayout"].next_keyboard()
 
 mod = "mod4"
 
 keys = [
     # Switch between keyboard layouts
-    Key([mod], "space", lazy.function(next_keyboard)),
+    Key([mod], "space", next_keyboard),
 
     # Switch between windows in current stack pane
     Key([mod], "h", lazy.layout.left()),
