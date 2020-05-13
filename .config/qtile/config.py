@@ -63,7 +63,11 @@ keys = [
     Key([mod, "control"], "j", lazy.layout.shuffle_down()),
     Key([mod, "control"], "l", lazy.layout.shuffle_right()),
 
-    Key([mod, "shift"], "space", lazy.layout.flip()),
+    # Grow windows in all directions
+    Key([mod, "shift"], "j", lazy.layout.grow_down()),
+    Key([mod, "shift"], "k", lazy.layout.grow_up()),
+    Key([mod, "shift"], "h", lazy.layout.grow_left()),
+    Key([mod, "shift"], "l", lazy.layout.grow_right()),
 
     Key([mod], "Return", lazy.spawn("alacritty")),
 
@@ -87,11 +91,12 @@ colours = [
 
 layouts = [
     layout.Max(),
-    layout.MonadTall(
-        name="monadtall",
+    layout.Bsp(
+        name="bsp",
         border_normal=colours[0],
         border_focus=colours[5],
         margin=3,
+        fair=False,
     ),
 ]
 
@@ -117,7 +122,7 @@ groups = [
     ),
     Group(
         "term",
-        layout="monadtall",
+        layout="bsp",
     ),
     Group(
         "misc",
