@@ -26,9 +26,10 @@ XTerm*savelines: 7000
 ! For selecting a URL via double-clicking
 XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
 
-XTerm*foreground: #a1a4aa
-XTerm*background: #21242a
-XTerm*cursorColor: #a1a4aa
+!! Colours
+*.foreground: #a1a4aa
+*.background: #21242a
+*.cursorColor: #a1a4aa
 
 ! black
 *.color0:       #000000
