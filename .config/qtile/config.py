@@ -45,6 +45,11 @@ def autostart():
 def next_keyboard(qtile: Qtile):
     qtile.widgets_map["keyboardlayout"].next_keyboard()
 
+try:
+    terminal = os.environ["TERMINAL"]
+except KeyError:
+    terminal = "xterm"
+
 mod = "mod4"
 
 keys = [
@@ -69,7 +74,7 @@ keys = [
     Key([mod, "shift"], "h", lazy.layout.grow_left()),
     Key([mod, "shift"], "l", lazy.layout.grow_right()),
 
-    Key([mod], "Return", lazy.spawn("alacritty")),
+    Key([mod], "Return", lazy.spawn(terminal)),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
