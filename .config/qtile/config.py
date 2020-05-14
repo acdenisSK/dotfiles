@@ -82,7 +82,8 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
-    Key([mod], "r", lazy.spawncmd()),
+    Key([mod], "r", lazy.spawn("rofi -show combi")),
+    Key([mod], "c", lazy.spawn("rofi -modi calc -show calc -no-show-history -no-sort")),
 ]
 
 colours = [
