@@ -13,15 +13,18 @@ alias ls="ls --color=auto"
 type pacman &>/dev/null && alias pacman="pacman --color=auto"
 type yay &>/dev/null && alias yay="yay --color=auto"
 type cargo &>/dev/null && alias cargo="cargo --color=auto"
-type nvim &>/dev/null && alias vim="nvim"
 
-if type vim &>/dev/null; then
+if type nvim &>/dev/null; then
+    alias vim="nvim"
+    export VISUAL="nvim"
+elif type vim &>/dev/null; then
     export VISUAL="vim"
 else
     export VISUAL="nano"
 fi
 
-export EDITOR="${VISUAL}"
+export EDITOR="$VISUAL"
+export GIT_EDITOR="$EDITOR"
 
 if type git &>/dev/null && [[ -d $HOME/dotfiles ]]; then
     alias config="git --git-dir=$HOME/dotfiles --work-tree=$HOME"
