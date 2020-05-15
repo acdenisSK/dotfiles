@@ -7,6 +7,7 @@ function run {
     fi
 }
 
+run ~/.config/polybar/launch.sh &
 run discord &
 run gammy &
 run flameshot &

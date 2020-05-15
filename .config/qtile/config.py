@@ -43,7 +43,7 @@ def autostart():
 
 @lazy.function
 def next_keyboard(qtile: Qtile):
-    qtile.widgets_map["keyboardlayout"].next_keyboard()
+    qtile.cmd_spawn(os.path.expanduser("~/scripts/change_kb_layout"))
 
 try:
     terminal = os.environ["TERMINAL"]
@@ -160,84 +160,7 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = [
-    Screen(
-        wallpaper=os.path.expanduser("~/.config/qtile/wallpaper.jpg"),
-        top=bar.Bar(
-            [
-                widget.GroupBox(
-                    font="Ubuntu Bold",
-                    active=colours[1],
-                    inactive=colours[2],
-                    this_current_screen_border=colours[3],
-                    borderwidth=5,
-                    highlight_method="block",
-                    rounded=False,
-                    use_mouse_wheel=False,
-                    disable_drag=True,
-                ),
-                widget.Prompt(
-                    prompt=prompt,
-                    fontsize=14,
-                ),
-                widget.WindowName(fontsize=14),
-                widget.TextBox(
-                    font="Ubuntu Mono",
-                    text="",
-                    padding=0,
-                    fontsize=46,
-                    foreground=colours[3],
-                ),
-                widget.Systray(
-                    background=colours[3],
-                ),
-                widget.TextBox(
-                    font="Ubuntu Mono",
-                    text="",
-                    padding=0,
-                    fontsize=46,
-                    foreground=colours[4],
-                    background=colours[3],
-                ),
-                widget.TextBox(
-                    font="Ubuntu Mono",
-                    text="⌨️",
-                    padding=0,
-                    fontsize=17,
-                    background=colours[4],
-                ),
-                widget.KeyboardLayout(
-                    font="Ubuntu Mono",
-                    fontsize=14,
-                    configured_keyboards=keyboards,
-                    foreground=colours[0],
-                    background=colours[4],
-                ),
-                widget.TextBox(
-                    font="Ubuntu Mono",
-                    text="",
-                    padding=0,
-                    fontsize=46,
-                    foreground=colours[3],
-                    background=colours[4],
-                ),
-                widget.TextBox(
-                    font="Ubuntu Mono",
-                    text="🕗",
-                    padding=0,
-                    fontsize=17,
-                    background=colours[3],
-                ),
-                widget.Clock(
-                    font="Ubuntu Mono",
-                    fontsize=14,
-                    format="%A %H:%M:%S %Y-%m-%d",
-                    foreground=colours[0],
-                    background=colours[3],
-                ),
-            ],
-            24,
-        ),
-    ),
+    Screen(wallpaper=os.path.expanduser("~/.config/qtile/wallpaper.jpg"))
 ]
 
 # Drag floating layouts.
