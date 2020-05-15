@@ -39,7 +39,7 @@ keyboards = ["us", "sk"]
 
 @hook.subscribe.startup_once
 def autostart():
-    subprocess.call([os.path.expanduser("~/.config/qtile/autostart.sh")])
+    subprocess.call([os.path.expanduser("~/scripts/autostart")])
 
 @lazy.function
 def next_keyboard(qtile: Qtile):
