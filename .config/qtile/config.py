@@ -159,9 +159,7 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
-screens = [
-    Screen(wallpaper=os.path.expanduser("~/.config/qtile/wallpaper.jpg"))
-]
+screens = [Screen()]
 
 # Drag floating layouts.
 mouse = [
