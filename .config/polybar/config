@@ -52,6 +52,8 @@ tray-background = ${colours.highlight}
 tray-maxsize = 18
 tray-padding = 3
 
+wm-restack = bspwm
+
 ;override-redirect = true
 
 [module/green-arrow]
