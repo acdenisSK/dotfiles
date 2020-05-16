@@ -30,7 +30,7 @@ format-background = ${colours.background}
 format-padding = 1
 format-font = 1
 
-[bar/qtile-bar]
+[bar/bar]
 monitor = HDMI-A-0
 width = 100%
 height = 22
