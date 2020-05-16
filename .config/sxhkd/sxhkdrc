@@ -1,0 +1,45 @@
+## General keybindings
+
+super + Return
+    $TERMINAL
+
+# Spawn Rofi, a window switcher and program runner
+super + r
+    rofi -show combi
+
+# Use Rofi as a calculator
+super + c
+    rofi -modi calc -show calc -no-show-history -no-sort
+
+super + space
+    ~/scripts/change_kb_layout
+
+## Bspwm keybindings
+
+# Restart or quit the wm
+super + control + {r,q}
+    bspc {wm -r,quit}
+
+# Close the focused window
+super + w
+    bspc node -c
+
+# Focus on a or send to a given workspace/desktop
+super + {_,shift + }{1-6}
+    bspc {desktop -f,node -d} {web,chat,games,term,misc,misc2}
+
+# Switch between tiled and monocle/stack layouts
+super + Tab
+    bspc desktop -l next
+
+# Direct focus to windows or move them in a direction
+super + {_,ctrl +}{h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
+
+# Extend the size of a window in a direction
+super + shift + {h,j,k,l}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Toggle floating mode of a window with the middle mouse button
+super + button3
+    bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
