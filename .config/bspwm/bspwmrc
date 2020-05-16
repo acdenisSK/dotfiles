@@ -28,8 +28,15 @@ bspc config border_width            1
 bspc config window_gap              6
 bspc config split_ratio             0.52
 
-bspc rule -a Gimp state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
+bspc desktop "web"   -l monocle
+bspc desktop "chat"  -l monocle
+bspc desktop "games" -l monocle
+bspc desktop "term"  -l tiled
+bspc desktop "misc"  -l monocle
+bspc desktop "misc2" -l monocle
+
+bspc rule -a firefox  desktop="web"
+bspc rule -a Chromium desktop="web"
+bspc rule -a discord  desktop="chat"
+bspc rule -a Steam    desktop="games"
+bspc rule -a Gimp     state=floating follow=on
