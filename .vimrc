@@ -65,8 +65,6 @@ let g:lightline = { 'colorscheme': 'onedark' }
 " Altering defaults
 """"""""""""""""""""""""""
 
-set autochdir
-
 " Do not show the current mode. The theme already does it for us.
 set noshowmode
 
