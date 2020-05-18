@@ -51,3 +51,15 @@ If on xfce
 
 - Virt-manager
 - VirtualBox
+
+## Screenshot tool
+
+- Flameshot
+
+## Monitor brigtness and colour manager
+
+- Gammy
+
+## GUI Network manager
+
+- Network Manager Applet
