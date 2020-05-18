@@ -14,6 +14,9 @@ super + c
 super + space
     ~/scripts/change_kb_layout
 
+Print
+    flameshot gui
+
 ## Bspwm keybindings
 
 # Restart or quit the wm
