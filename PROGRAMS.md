@@ -12,6 +12,12 @@
 
 - PcManFM
 
+## Archive Manager
+
+- XArchiver
+If on Gnome or its derivatives
+- File Roller
+
 ## Office Suite
 
 - LibreOffice
