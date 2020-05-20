@@ -7,6 +7,8 @@ if ! pgrep sxhkd; then
     sxhkd &
 fi
 
+xsetroot -cursor_name left_ptr
+
 bspc monitor -d web chat games term misc misc2
 
 bspc config focused_border_color    "#8002f5"
