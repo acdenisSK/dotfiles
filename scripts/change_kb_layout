@@ -1,11 +1,10 @@
 #!/bin/bash
 
-set -u
-
 # Read the configured layouts in the current directory
-configured_layouts=$(<$(dirname "$0")/kblayouts.txt)
+configured_layouts=$(<"$HOME/scripts/kblayouts.txt")
+
 # Split by space
-read -ra layouts <<< $configured_layouts
+read -ra layouts <<< "$configured_layouts"
 
 # Select the third line and second column of the query
 current_layout=$(setxkbmap -query | awk 'FNR == 3 { print $2 }')
@@ -17,6 +16,6 @@ for i in "${!layouts[@]}"; do
         # Choose the next layout in the list.
         # If we overflow start from the beginning.
         i=$(( (i + 1) % len ))
-        setxkbmap ${layouts[i]}
+        setxkbmap "${layouts[i]}"
     fi
 done

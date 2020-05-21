@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 
 # Only run the program if it isn't already.
-function run {
-    if ! pgrep $1 ; then
-        $@ &
+run() {
+    if ! pgrep "$1" ; then
+        "$@" &
     fi
 }
 
