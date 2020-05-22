@@ -36,8 +36,8 @@ fi
 
 # Prompt
 
-SKYBLUE="\[$(tput setaf 74)\]"
-DEEPSKY="\[$(tput setaf 39)\]"
-RESET="\[$(tput sgr0)\]"
+SKYBLUE="\[\e[38;5;74m\]"
+DEEPSKY="\[\e[38;5;39m\]"
+RESET="\[\e[0m\]"
 
-PS1="${DEEPSKY}[${RESET}${SKYBLUE}\u@\h${RESET} \W${DEEPSKY}]${RESET}\$ "
+PS1="${DEEPSKY}[${SKYBLUE}\u@\h${RESET} \W${DEEPSKY}]${RESET}\$ "
