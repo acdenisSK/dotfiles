@@ -9,6 +9,8 @@ Xft.autohint: true
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcdfilter
 
+*.customization: -color
+XTerm*termName: xterm-256color
 XTerm*renderFont: true
 XTerm*faceName: xft:Ubuntu Mono:size=12
 XTerm*utf8: 2
