@@ -42,3 +42,4 @@ bspc rule -a Chromium desktop="web"
 bspc rule -a discord  desktop="chat"
 bspc rule -a Steam    desktop="games"
 bspc rule -a Gimp     state=floating follow=on
+bspc rule -a Emacs    state=tiled
