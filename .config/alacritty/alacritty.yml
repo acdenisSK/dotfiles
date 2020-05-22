@@ -128,8 +128,8 @@ background_opacity: 0.7
 
 # Key bindings
 key_bindings:
-  - { key: K, mods: Control, action: IncreaseFontSize }
-  - { key: J, mods: Control, action: DecreaseFontSize }
+  - { key: Add, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
