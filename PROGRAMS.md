@@ -2,6 +2,7 @@
 
 ## Text and Code Editor
 
+- Emacs
 - Vim
 
 ## Markdown reader
