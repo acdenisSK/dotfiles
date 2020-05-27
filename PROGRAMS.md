@@ -15,8 +15,7 @@
 ## Archive Manager
 
 - XArchiver
-If on Gnome or its derivatives
-- File Roller
+- File Roller if on Gnome or its derivatives
 
 ## Office Suite
 
@@ -30,15 +29,13 @@ If on Gnome or its derivatives
 ## PDF Reader
 
 - Zathura
-If on Gnome
-- Evince
+- Evince if on Gnome
 - Firefox
 
 ## Image viewer
 
 - Sxiv
-If on xfce
-- Ristretto
+- Ristretto if on xfce
 
 ## Video Player
 
