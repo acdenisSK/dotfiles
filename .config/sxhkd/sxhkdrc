@@ -1,5 +1,4 @@
 ## General keybindings
-
 super + Return
     $TERMINAL
 
@@ -43,6 +42,17 @@ super + {_,ctrl +}{h,j,k,l}
 super + shift + {h,j,k,l}
     bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
-# Toggle floating mode of a window with the middle mouse button
+
+## Change the state of a focused window by switching between the desired and previous state of the window
+
+# Toggle fullscreen mode
+super + f
+    bspc node 'focused.!fullscreen' -t fullscreen || bspc node focused -t '~fullscreen'
+
+# Toggle tiled mode
+super + t
+    bspc node 'focused.!tiled' -t tiled || bspc node focused -t '~tiled'
+
+# Toggle floating mode with the middle mouse button
 super + button2
-    bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+    bspc node 'focused.!floating' -t floating || bspc node focused -t '~floating'
