@@ -36,13 +36,13 @@ set number
 """"""""""""""""""""""""""
 " Plugins
 """"""""""""""""""""""""""
+
+" Download the plugin manager if needed.
+if empty(glob("~/.vim/autoload/plug.vim"))
+    ! curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
 call plug#begin("~/.vim/plugged")
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'jansenm/vim-cmake'
-
-Plug 'scrooloose/nerdtree'
 
 Plug 'sheerun/vim-polyglot'
 
@@ -102,11 +102,11 @@ set nohlsearch
 set nobackup
 set nowritebackup
 
+" Neither make swaps of currently open files
+set noswapfile
+
 " Limit the amount of lines in the command line.
 set cmdheight=2
-
-" How many milliseconds before Vim will write into the swap file of a buffer.
-set updatetime=300
 
 set shortmess+=c
 
@@ -127,7 +127,7 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 
 """"""""""""""""""""""""""
-" Keybindings (and CoC configuration)
+" Keybindings
 """"""""""""""""""""""""""
 
 " Simpler switching between buffers
@@ -136,27 +136,17 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    else
+        return "\<c-n>"
+    endif
 endfunction
 
-inoremap <silent><expr> <c-space> coc#refresh()
+" Utilise builtin autocompletion
+inoremap <expr> <tab> InsertTabWrapper()
 
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-nmap <F2> <Plug>(coc-rename)
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" File browser
-noremap <C-n> :NERDTreeToggle<CR>
+" Open the builtin explorer (netrw)
+nnoremap <C-D> :Vexplore<CR>
