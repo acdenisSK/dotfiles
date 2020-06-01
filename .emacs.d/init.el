@@ -184,7 +184,6 @@
 (use-package eglot
   :ensure t
   :config
-  (add-to-list 'eglot-server-programs '((c-mode c++-mode) . ("clangd")))
   (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer")))
   :hook ((c-mode c++-mode rust-mode) . eglot-ensure)
   :bind (:map eglot-mode-map (("<f2>" . eglot-rename) ("<f3>" . eglot-format))))
