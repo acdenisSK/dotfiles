@@ -21,7 +21,7 @@
 
 (defun startup/reset-gc ()
   (setq gc-cons-threshold 16777216
-	gc-cons-percentage 0.1))
+	    gc-cons-percentage 0.1))
 
 (add-hook 'emacs-startup-hook 'startup/revert-file-name-handler-alist)
 (add-hook 'emacs-startup-hook 'startup/reset-gc)
@@ -30,7 +30,7 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+	         '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -192,6 +192,10 @@
   :ensure t
   :hook (eglot-managed-mode . eldoc-box-hover-mode))
 
+(use-package editorconfig
+  :ensure t
+  :hook (prog-mode . editorconfig-mode))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -203,7 +207,7 @@
  '(company-selection-wrap-around t)
  '(company-tooltip-limit 5)
  '(package-selected-packages
-   '(smex eldoc-box eglot flycheck-rust rust-mode toml-mode dashboard company flycheck evil avy expand-region which-key eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
+   '(editorconfig smex eldoc-box eglot flycheck-rust rust-mode toml-mode dashboard company flycheck evil avy expand-region which-key eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
