@@ -45,7 +45,8 @@
 (defadvice ansi-term (before force-bash)
   (interactive (list alex/shell)))
 (ad-activate 'ansi-term)
-(global-set-key (kbd "<M-return>") 'ansi-term)
+
+(global-set-key (kbd "<M-RET>") 'ansi-term)
 
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C-+") 'text-scale-decrease)
