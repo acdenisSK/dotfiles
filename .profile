@@ -3,7 +3,7 @@
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 export LANG=en_US.UTF-8
-export TERMINAL="alacritty"
+export TERMINAL="termite"
 export BROWSER="firefox"
 export PAGER="less"
 export READER="zathura"
