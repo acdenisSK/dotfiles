@@ -105,6 +105,7 @@
 (global-set-key (kbd "M-l") 'windmove-right)
 
 (ido-mode 1)
+(ido-everywhere 1)
 
 (use-package all-the-icons
   :ensure t)
