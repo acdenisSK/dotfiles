@@ -29,8 +29,11 @@
 
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-	         '("melpa" . "https://melpa.org/packages/"))
+(print package-archives)
+(setq package-archives
+      '(("gnu" . "https://elpa.gnu.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")))
+
 (package-initialize)
 
 (unless (package-installed-p 'use-package)
@@ -50,8 +53,6 @@
 
 (global-set-key (kbd "C-=") 'text-scale-increase)
 (global-set-key (kbd "C-+") 'text-scale-decrease)
-
-(global-subword-mode 1)
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
@@ -111,7 +112,7 @@
 (use-package doom-modeline
   :ensure t
   :after all-the-icons
-  :hook (after-init . doom-modeline-mode))
+  :config (doom-modeline-mode 1))
 
 (use-package eterm-256color
   :ensure t
@@ -121,9 +122,13 @@
   :ensure t
   :hook (web-mode . rainbow-mode))
 
+(use-package emojify
+  :ensure t
+  :config (global-emojify-mode 1))
+
 (use-package which-key
   :ensure t
-  :config (which-key-mode))
+  :config (which-key-mode 1))
 
 (use-package smex
   :ensure t
@@ -171,22 +176,23 @@
 (use-package toml-mode
   :ensure t)
 
-(use-package rust-mode
-  :ensure t)
-
-(use-package flycheck-rust
+(use-package rustic
   :ensure t
-  :after flycheck
-  :hook (flycheck-mode . flycheck-rust-setup))
+  :config
+  (setq
+   rustic-lsp-client 'eglot
+   rustic-lsp-server 'rust-analyzer))
 
 (use-package meson-mode
   :ensure t)
 
 (use-package eglot
   :ensure t
-  :config
-  (add-to-list 'eglot-server-programs '(rust-mode . ("rust-analyzer")))
-  :hook ((c-mode c++-mode rust-mode) . eglot-ensure)
+  :hook
+  ;; Disable flymake
+  (eglot-managed-mode . (lambda () (flymake-mode -1)))
+  ;; Use eglot in C, C++, and Rust source files.
+  ((c-mode c++-mode rust-mode) . eglot-ensure)
   :bind (:map eglot-mode-map (("<f2>" . eglot-rename) ("<f3>" . eglot-format))))
 
 (use-package eldoc-box
@@ -202,13 +208,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(company-idle-delay 0.15)
- '(company-minimum-prefix-length 2)
- '(company-require-match 'never)
- '(company-selection-wrap-around t)
- '(company-tooltip-limit 5)
  '(package-selected-packages
-   '(editorconfig smex eldoc-box eglot flycheck-rust rust-mode toml-mode dashboard company flycheck evil avy expand-region which-key eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
+   '(editorconfig eldoc-box eglot meson-mode rustic toml-mode dashboard company flycheck evil avy expand-region smex which-key emojify rainbow-mode eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
