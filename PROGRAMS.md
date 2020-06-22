@@ -60,7 +60,7 @@
 
 - Flameshot
 
-## Monitor brigtness and colour manager
+## Monitor brightness and colour manager
 
 - Gammy
 
