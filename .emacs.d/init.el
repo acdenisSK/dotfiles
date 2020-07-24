@@ -8,7 +8,6 @@
 ;; 2 - https://www.youtube.com/watch?v=d6iY_1aMzeg&list=PLX2044Ew-UVVv31a0-Qn3dA6Sd_-NyA1n
 ;; 3 - https://www.youtube.com/channel/UC7FpGodjczWY8mDV1KvP2pQ
 ;; 4 - https://www.youtube.com/playlist?list=PLNJWazvift25KnHDwYlhwrrgr60wtpQOB
-
 ;;; This fixed garbage collection, makes emacs start up faster ;;;;;;;
 (setq gc-cons-threshold 402653184
       gc-cons-percentage 0.6)
@@ -163,6 +162,11 @@
   (company-selection-wrap-around t)
   (company-require-match 'never))
 
+(use-package projectile
+  :ensure t
+  :config (projectile-mode 1)
+  :bind-keymap ("C-c p" . projectile-command-map))
+
 (use-package dashboard
   :ensure t
   :after all-the-icons
@@ -202,15 +206,20 @@
 
 (use-package editorconfig
   :ensure t
-  :hook (prog-mode . editorconfig-mode))
+  :config (editorconfig-mode 1))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-idle-delay 0.15)
+ '(company-minimum-prefix-length 2)
+ '(company-require-match 'never)
+ '(company-selection-wrap-around t)
+ '(company-tooltip-limit 5)
  '(package-selected-packages
-   '(editorconfig eldoc-box eglot meson-mode rustic toml-mode dashboard company flycheck evil avy expand-region smex which-key emojify rainbow-mode eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
+   '(toml-mode editorconfig eldoc-box eglot meson-mode rustic dashboard company flycheck evil avy expand-region smex which-key emojify rainbow-mode eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
