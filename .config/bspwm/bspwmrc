@@ -9,7 +9,7 @@ fi
 
 xsetroot -cursor_name left_ptr
 
-bspc monitor -d web chat games term misc misc2
+bspc monitor -d web chat games term misc
 
 bspc config focused_border_color    "#8002f5"
 bspc config focus_follows_pointer   true
@@ -35,7 +35,6 @@ bspc desktop "chat"  -l monocle
 bspc desktop "games" -l monocle
 bspc desktop "term"  -l tiled
 bspc desktop "misc"  -l monocle
-bspc desktop "misc2" -l monocle
 
 bspc rule -a firefox  desktop="web"
 bspc rule -a Chromium desktop="web"
