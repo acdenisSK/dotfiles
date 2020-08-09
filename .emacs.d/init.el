@@ -191,13 +191,17 @@
 (use-package meson-mode
   :ensure t)
 
+(use-package zig-mode
+  :ensure t)
+
 (use-package eglot
   :ensure t
   :hook
   ;; Disable flymake
   (eglot-managed-mode . (lambda () (flymake-mode -1)))
-  ;; Use eglot in C, C++, and Rust source files.
-  ((c-mode c++-mode rust-mode) . eglot-ensure)
+  ;; Use eglot in C, C++, Zig, and Rust source files.
+  ((c-mode c++-mode zig-mode rust-mode) . eglot-ensure)
+  :config (add-to-list  'eglot-server-programs '(zig-mode . ("zls")))
   :bind (:map eglot-mode-map (("<f2>" . eglot-rename) ("<f3>" . eglot-format))))
 
 (use-package eldoc-box
@@ -219,7 +223,7 @@
  '(company-selection-wrap-around t)
  '(company-tooltip-limit 5)
  '(package-selected-packages
-   '(toml-mode editorconfig eldoc-box eglot meson-mode rustic dashboard company flycheck evil avy expand-region smex which-key emojify rainbow-mode eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
+   '(zig-mode toml-mode editorconfig eldoc-box eglot meson-mode rustic dashboard company flycheck evil avy expand-region smex which-key emojify rainbow-mode eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
