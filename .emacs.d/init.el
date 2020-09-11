@@ -28,7 +28,6 @@
 
 (require 'package)
 (setq package-enable-at-startup nil)
-(print package-archives)
 (setq package-archives
       '(("gnu" . "https://elpa.gnu.org/packages/")
         ("melpa" . "https://melpa.org/packages/")))
@@ -188,6 +187,9 @@
    rustic-lsp-client 'eglot
    rustic-lsp-server 'rust-analyzer))
 
+(use-package cmake-mode
+  :ensure t)
+
 (use-package meson-mode
   :ensure t)
 
@@ -223,7 +225,7 @@
  '(company-selection-wrap-around t)
  '(company-tooltip-limit 5)
  '(package-selected-packages
-   '(zig-mode toml-mode editorconfig eldoc-box eglot meson-mode rustic dashboard company flycheck evil avy expand-region smex which-key emojify rainbow-mode eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
+   '(cmake-mode zig-mode toml-mode editorconfig eldoc-box eglot meson-mode rustic dashboard company flycheck evil avy expand-region smex which-key emojify rainbow-mode eterm-256color doom-modeline all-the-icons atom-one-dark-theme use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
