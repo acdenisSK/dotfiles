@@ -4,7 +4,7 @@ export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 
 export LANG=en_US.UTF-8
 export TERMINAL="termite"
-export BROWSER="firefox"
+export BROWSER="chromium"
 export PAGER="less"
 export READER="zathura"
 
