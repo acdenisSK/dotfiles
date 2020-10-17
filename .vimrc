@@ -46,6 +46,11 @@ call plug#begin("~/.vim/plugged")
 
 Plug 'sheerun/vim-polyglot'
 
+Plug 'ycm-core/YouCompleteMe'
+Plug 'mattn/emmet-vim'
+
+Plug 'easymotion/vim-easymotion'
+
 Plug 'ap/vim-css-color'
 
 Plug 'itchyny/lightline.vim'
@@ -64,6 +69,9 @@ let g:lightline = { 'colorscheme': 'onedark' }
 """"""""""""""""""""""""""
 " Altering defaults
 """"""""""""""""""""""""""
+
+" Set the leader key to a space
+let mapleader = " "
 
 " Do not show the current mode. The theme already does it for us.
 set noshowmode
@@ -122,9 +130,10 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Configure netrw
 let g:netrw_banner = 0
-let g:netrw_browse_split=4
+let g:netrw_browse_split=0
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
+let g:netrw_keepdir=0
 
 """"""""""""""""""""""""""
 " Keybindings
@@ -149,4 +158,4 @@ endfunction
 inoremap <expr> <tab> InsertTabWrapper()
 
 " Open the builtin explorer (netrw)
-nnoremap <C-D> :Vexplore<CR>
+nnoremap <C-D> :Explore<CR>
