@@ -25,7 +25,10 @@ filetype plugin on
 let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 
-set termguicolors
+if has("termguicolors")
+    set termguicolors
+endif
+
 set background=dark
 
 """"""""""""""""""""""""""
@@ -47,10 +50,13 @@ call plug#begin("~/.vim/plugged")
 Plug 'sheerun/vim-polyglot'
 
 Plug 'ycm-core/YouCompleteMe'
-Plug 'mattn/emmet-vim'
+
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 
 Plug 'itchyny/lightline.vim'
@@ -59,6 +65,14 @@ Plug 'joshdick/onedark.vim'
 Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
+
+""""""""""""""""""""""""""
+" Plugin configuration
+""""""""""""""""""""""""""
+
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 """"""""""""""""""""""""""
 " Theming
@@ -93,15 +107,23 @@ set smarttab
 set tabstop=4
 set shiftwidth=4
 
+" Copy indents when creating new lines
+set autoindent
+
 """"""""""""""""""""""""""
 " Altering defaults cont.
 """"""""""""""""""""""""""
+
+" Always use newlines for delimiting a line
+set fileformat=unix
 
 " Always show the statusline
 set laststatus=2
 
 " When changing buffers, hide them
 set hidden
+
+set backspace=indent,eol,start
 
 " Do not highlight the text when searching
 set nohlsearch
