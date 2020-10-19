@@ -5,12 +5,21 @@ audible_bell = false
 bold_is_bright = true
 clickable_url = true
 dynamic_title = true
-font = Ubuntu Mono 12
 fullscreen = true
 icon_name = terminal
 scrollback_lines = 10000
 search_wrap = true
 hyperlinks = true
+
+# Prefer mononoki, but if it's absent, use one of the substitute fonts.
+#
+# Priority is bottom to top, although termite will report the first font
+# when querying the information through commands such as `neofetch`.
+font = DejaVu Sans Mono 11
+font = Noto Sans Mono 11
+font = Droid Sans Mono 11
+font = Ubuntu Mono 12
+font = Mononoki 11
 
 [colors]
 foreground = #a1a4aa
