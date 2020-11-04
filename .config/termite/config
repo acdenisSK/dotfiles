@@ -23,8 +23,7 @@ font = Mononoki 11
 
 [colors]
 foreground = #a1a4aa
-background = rgba(22, 22, 22, 0.7)
-#background = #21242a
+background = #0f0f0f
 
 # black
 color0  = #000000
