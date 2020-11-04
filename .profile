@@ -8,6 +8,8 @@ export BROWSER="chromium"
 export PAGER="less"
 export READER="zathura"
 
+export TERM="xterm-256color"
+
 export VISUAL="vim"
 export EDITOR="$VISUAL"
 export GIT_EDITOR="$EDITOR"
