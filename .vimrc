@@ -71,7 +71,7 @@ call plug#end()
 """"""""""""""""""""""""""
 
 let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 """"""""""""""""""""""""""
