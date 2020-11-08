@@ -1,6 +1,6 @@
 configuration {
-    modi: "calc,combi";
+    modi: "combi";
     theme: "Arc-Dark";
-    combi-modi: "window,run,drun";
+    combi-modi: "drun,run";
     show-icons: true;
 }
