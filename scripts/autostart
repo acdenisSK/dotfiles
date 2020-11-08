@@ -10,6 +10,8 @@ run() {
 run ~/.fehbg &
 run ~/.config/polybar/launch.sh &
 run discord &
+# On NixOS Discord is capitalized
+run Discord &
 run gammy &
 run flameshot &
 run nm-applet &
