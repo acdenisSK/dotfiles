@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Read the configured layouts in the current directory
 configured_layouts=$(<"$HOME/scripts/kblayouts.txt")

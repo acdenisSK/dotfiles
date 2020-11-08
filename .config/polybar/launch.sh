@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This script was copied from the Arch Linux Wiki[1] and modified slightly.
 #
