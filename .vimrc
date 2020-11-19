@@ -101,7 +101,7 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-autocmd BufReadPost,BufNewFile *.c,*.h,*.cpp,*.hpp,*.rs,*.py,*.html,*.css,*.js,CMakeLists.txt,meson.build call deoplete#enable()
+autocmd BufReadPost,BufNewFile *.c,*.h,*.cpp,*.hpp,*.rs,*.py,*.html,*.css,*.js,CMakeLists.txt,meson.build,Cargo.toml call deoplete#enable()
 
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
