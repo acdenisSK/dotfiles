@@ -1,7 +1,5 @@
 [user]
 	email = acdenissk69@gmail.com
 	name = Alex M. M.
-[credential]
-	helper = store
 [pull]
 	rebase = true
