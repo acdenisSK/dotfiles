@@ -1,18 +1,11 @@
 #!/bin/sh
 
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
-
-export LANG=en_US.UTF-8
-export TERMINAL="termite"
-export BROWSER="chromium"
-export PAGER="less"
-export READER="zathura"
-
-export TERM="xterm-256color"
-
-export VISUAL="vim"
-export EDITOR="$VISUAL"
-export GIT_EDITOR="$EDITOR"
+# This should be removed in favour of .config/environment.d/10-path.conf,
+# but will unfortunately have to stay as the PATH variable gets
+# overriden by /etc/profile. I do not want to change
+# system files under /etc, especially if I wish to synchronise
+# changes to the dotfiles repo.
+export PATH=${HOME}/.local/bin:${HOME}/.cargo/bin:$PATH
 
 # Source .bashrc if we're running bash and the file exists
 
