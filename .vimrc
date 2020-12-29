@@ -49,22 +49,26 @@ call plug#begin("~/.vim/plugged")
 
 Plug 'sheerun/vim-polyglot'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+if has('python3')
+  if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
 
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'lighttiger2505/deoplete-vim-lsp'
+  Plug 'lighttiger2505/deoplete-vim-lsp'
+
+  Plug 'prabirshrestha/vim-lsp'
+  Plug 'mattn/vim-lsp-settings'
+
+  Plug 'thomasfaingnaert/vim-lsp-snippets'
+  Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+endif
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'thomasfaingnaert/vim-lsp-snippets'
-Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 
 Plug 'easymotion/vim-easymotion'
 
