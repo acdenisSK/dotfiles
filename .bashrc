@@ -15,14 +15,16 @@ alias cargo="cargo --color=auto"
 
 shopt -s checkwinsize
 
+shopt -s no_empty_cmd_completion
+
 shopt -s expand_aliases
 
 shopt -s histappend
 
 # Prompt
 
-SKYBLUE="\[\e[38;5;74m\]"
-DEEPSKY="\[\e[38;5;39m\]"
+GREEN="\[\e[38;5;2m\]"
+LIGHTGREEN="\[\e[38;5;10m\]"
 RESET="\[\e[0m\]"
 
-PS1="${DEEPSKY}[${SKYBLUE}\u@\h${RESET} \W${DEEPSKY}]${RESET}\$ "
+PS1="${LIGHTGREEN}\u${RESET}@\h ${GREEN}\w${RESET}> "
