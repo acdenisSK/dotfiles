@@ -21,6 +21,11 @@ shopt -s expand_aliases
 
 shopt -s histappend
 
+bind 'TAB: menu-complete'
+bind 'set show-all-if-ambiguous on'
+bind 'set mark-symlinked-directories on'
+bind 'set colored-stats on'
+
 # Prompt
 
 GREEN="\[\e[38;5;2m\]"
