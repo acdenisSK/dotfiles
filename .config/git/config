@@ -3,3 +3,5 @@
 	name = Alex M. M.
 [pull]
 	rebase = true
+[init]
+	defaultBranch = master
