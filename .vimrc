@@ -76,7 +76,7 @@ Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 
 Plug 'itchyny/lightline.vim'
-Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -108,8 +108,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 """"""""""""""""""""""""""
 " Theming
 """"""""""""""""""""""""""
-colorscheme onedark
-let g:lightline = { 'colorscheme': 'onedark' }
+colorscheme gruvbox
+let g:lightline = { 'colorscheme': 'gruvbox' }
 
 """"""""""""""""""""""""""
 " Altering defaults
