@@ -7,6 +7,12 @@
 # changes to the dotfiles repo.
 export PATH=${HOME}/.local/bin:${HOME}/.cargo/bin:$PATH
 
+## This could be too, but environment.d doesn't support exporting variables based
+## on a condition.
+#
+# Run Firefox natively on Wayland, not through XWayland.
+[ "${XDG_SESSION_TYPE}" = "wayland" ] && export MOZ_ENABLE_WAYLAND=1
+
 # Source .bashrc if we're running bash and the file exists
 
 if [ -n "$BASH_VERSION" ] && [ -f "$HOME/.bashrc" ]; then
