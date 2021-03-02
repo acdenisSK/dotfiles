@@ -121,10 +121,24 @@ let mapleader = " "
 " Do not show the current mode. The theme already does it for us.
 set noshowmode
 
+" Split windows in a sane way, new window on the bottom vertically and right
+" horizontally
 set splitbelow splitright
 
+set scrolloff=3
+set sidescroll=3
+
 " Do not wrap the line to the next row if it exceeds the column limit.
+" Also display a ruler to keep track of the number of characters in a line
 set nowrap
+set ruler
+set cc=80
+
+" Improve regex
+set magic
+" Ignore the case in a pattern
+set ignorecase
+set smartcase
 
 """"""""""""""""""""""""""
 "" Indenting
@@ -156,8 +170,15 @@ set hidden
 
 set backspace=indent,eol,start
 
-" Do not highlight the text when searching
-set nohlsearch
+" Highlight text when searching
+set incsearch
+set showmatch
+set hlsearch
+" Clear the highlighting
+nnoremap \\ :noh<cr>
+
+" Allow resizing windows with the mouse
+set mouse=a
 
 " Do not make backups each time before overwriting a file
 set nobackup
@@ -170,8 +191,17 @@ set noswapfile
 set cmdheight=2
 
 set shortmess+=c
-
 set signcolumn=yes
+set lazyredraw
+
+" Get rid of the clutter in GVim
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=e
+
+" Disable Ex mode
+nnoremap Q <Nop>
 
 " Searching for files easier
 " credit: https://youtu.be/XA2WjJbmmoM?t=425
