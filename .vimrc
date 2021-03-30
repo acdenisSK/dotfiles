@@ -49,28 +49,8 @@ call plug#begin("~/.vim/plugged")
 
 Plug 'sheerun/vim-polyglot'
 
-if has('python3')
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
-
-  Plug 'lighttiger2505/deoplete-vim-lsp'
-
-  Plug 'prabirshrestha/vim-lsp'
-  Plug 'mattn/vim-lsp-settings'
-
-  Plug 'thomasfaingnaert/vim-lsp-snippets'
-  Plug 'thomasfaingnaert/vim-lsp-ultisnips'
-endif
-
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
-Plug 'easymotion/vim-easymotion'
 
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
@@ -85,22 +65,6 @@ call plug#end()
 """"""""""""""""""""""""""
 " Plugin configuration
 """"""""""""""""""""""""""
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> <F2> <plug>(lsp-rename)
-endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
-autocmd BufReadPost,BufNewFile *.c,*.h,*.cpp,*.hpp,*.rs,*.py,*.html,*.css,*.js,CMakeLists.txt,meson.build,Cargo.toml call deoplete#enable()
-
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
