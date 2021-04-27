@@ -99,6 +99,7 @@
 
    This adds various highlighting/display modes, such as highlighting pairs of parentheses,
    the current line, and displaying the current line and column number in the modeline.
+   In addition, it enables absolute line numbers in =prog-mode= buffers.
 
    #+BEGIN_SRC emacs-lisp
      (show-paren-mode 1)
@@ -106,6 +107,8 @@
 
      (setq line-number-mode t)
      (setq column-number-mode t)
+
+     (add-hook 'prog-mode-hook (lambda () (display-line-numbers-mode)))
    #+END_SRC
 
 ** (G)UI elements
