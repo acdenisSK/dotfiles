@@ -387,7 +387,7 @@
               (:map lsp-mode-map
                     ("<tab>" . company-indent-or-complete-common)))
        :custom
-       (company-idle-delay 0.0)
+       (company-idle-delay 0.8)
        (company-minimum-prefix-length 1)
        (company-selection-wrap-around t))
 
