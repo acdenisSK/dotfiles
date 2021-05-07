@@ -206,7 +206,8 @@
      ;; Highlight colours in HTML/CSS when using hexadecimal notation.
      (use-package rainbow-mode
        :ensure t
-       :hook (web-mode . rainbow-mode))
+       :hook ((html-mode . rainbow-mode)
+              (css-mode . rainbow-mode)))
 
      ;; Render emojis when their unicode data is present in a buffer.
      (use-package emojify
@@ -277,6 +278,17 @@
      (use-package meson-mode
        :ensure t)
    #+END_SRC
+
+*** Emmet
+
+    This adds support for emmet snippets in web modes.
+
+    #+BEGIN_SRC emacs-lisp
+      (use-package emmet-mode
+        :ensure t
+        :hook ((html-mode . emmet-mode)
+               (css-mode . emmet-mode)))
+    #+END_SRC
 
 ** Emacs completion
 
