@@ -21,6 +21,16 @@
 
   This changes the default settings to something more sane and useful.
 
+** Font management
+
+*** Size
+
+    This sets the size of the default font ("face" in Emacs parlance) to be 11pt.
+
+    #+BEGIN_SRC emacs-lisp
+      (set-face-attribute 'default nil :height 110)
+    #+END_SRC
+
 ** Configure tabs and the TAB key
 
    This turns tabs to spaces, and sets the default width of tabs to 4.
