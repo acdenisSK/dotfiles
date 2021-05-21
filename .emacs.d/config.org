@@ -279,6 +279,9 @@
    This adds support for new major-modes.
 
    #+BEGIN_SRC emacs-lisp
+     (use-package zig-mode
+       :ensure t)
+
      (use-package toml-mode
        :ensure t)
 
@@ -374,14 +377,14 @@
 
 ** Language server
 
-   This adds support for language servers. For now, only C, C++, and Rust are configured.
+   This adds support for language servers. For now, only C, C++, Rust, and Zig are configured.
 
    #+BEGIN_SRC emacs-lisp
      (use-package lsp-mode
        :ensure t
        :init
        (setq lsp-keymap-prefix "C-c l")
-       :hook (((c-mode c++-mode rust-mode) . lsp)
+       :hook (((c-mode c++-mode rust-mode zig-mode) . lsp)
               (lsp-mode . lsp-enable-which-key-integration))
        :commands lsp)
 
