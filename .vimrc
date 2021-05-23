@@ -92,9 +92,7 @@ set splitbelow splitright
 set scrolloff=3
 set sidescroll=3
 
-" Do not wrap the line to the next row if it exceeds the column limit.
-" Also display a ruler to keep track of the number of characters in a line
-set nowrap
+" Display a ruler to keep track of the number of characters in a line
 set ruler
 set cc=80
 
