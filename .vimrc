@@ -20,12 +20,12 @@ filetype plugin on
 " Colouring
 """"""""""""""""""""""""""
 
-" These two lines are required to enable colours in the alacritty terminal.
-let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-
 if has("termguicolors")
     set termguicolors
+
+    " These two lines are required to enable colours in the alacritty terminal.
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
 endif
 
 set background=dark
