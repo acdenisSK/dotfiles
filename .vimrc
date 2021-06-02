@@ -49,9 +49,6 @@ call plug#begin("~/.vim/plugged")
 
 Plug 'sheerun/vim-polyglot'
 
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
 Plug 'mattn/emmet-vim'
 Plug 'ap/vim-css-color'
 
@@ -61,13 +58,6 @@ Plug 'morhetz/gruvbox'
 Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
-
-""""""""""""""""""""""""""
-" Plugin configuration
-""""""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 """"""""""""""""""""""""""
 " Theming
