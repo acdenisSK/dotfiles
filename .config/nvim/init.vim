@@ -17,18 +17,6 @@ syntax on
 filetype plugin on
 
 """"""""""""""""""""""""""
-" Colouring
-""""""""""""""""""""""""""
-
-if has("termguicolors")
-    set termguicolors
-
-    " These two lines are required to enable colours in the alacritty terminal.
-    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
-endif
-
-""""""""""""""""""""""""""
 " Absolute line numbering
 """"""""""""""""""""""""""
 set number
@@ -64,12 +52,18 @@ luafile ~/.config/nvim/lsp.lua
 """"""""""""""""""""""""""
 " Theming
 """"""""""""""""""""""""""
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_invert_selection = '0'
-colorscheme gruvbox
 set background=dark
 
-let g:lightline = { 'colorscheme': 'gruvbox' }
+if has("termguicolors")
+    set termguicolors
+
+    let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+
+    let g:gruvbox_invert_selection = '0'
+    colorscheme gruvbox
+    let g:lightline = { 'colorscheme': 'gruvbox' }
+endif
 
 """"""""""""""""""""""""""
 " Altering defaults
